@@ -1,0 +1,17 @@
+<h2 class="title">🖼️ Simple Image Gallery</h2>
+
+<!-- Gallery Grid -->
+<div class="gallery">
+  <div class="thumbnail" *ngFor="let image of images">
+    <img [src]="image.src" [alt]="image.alt" (click)="openLightbox(image.src)" />
+  </div>
+</div>
+
+<!-- Lightbox Modal -->
+<div class="lightbox" *ngIf="selectedImage">
+  <div class="overlay" (click)="closeLightbox()"></div>
+  <div class="lightbox-content">
+    <img [src]="selectedImage" alt="Full view" />
+    <button class="close-btn" (click)="closeLightbox()">✖</button>
+  </div>
+</div>
