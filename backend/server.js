@@ -19,6 +19,10 @@ const imageSchema = new mongoose.Schema({
 const Image = mongoose.model("Image", imageSchema);
 
 // ✅ Route to fetch all images
+app.get("./", (req, res) => {
+  res.send("Welcome to the Image Gallery API");
+});
+
 app.get("/images", async (req, res) => {
   const images = await Image.find();
   res.json(images);
